@@ -1,0 +1,30 @@
+.blog-header {
+	background-color: #fbfbfb;
+	display: flex;
+	flex-direction: column;
+	
+	justify-content: center;
+	align-items: center;
+	padding: 4px;
+}
+.blog-heading{
+	color: #000;
+    /* font-family: Inter; */
+	font-size:clamp(30px, 2vw + 1rem, 100px);
+	text-align: left;
+	padding:10px 0px 20px ;
+	width:90%;
+	border-bottom: 1px solid;
+}
+.blog-header-ft{
+	display: flex;
+	width: 90%;
+	height: 70px;
+	justify-content: space-between;
+	align-items: center;
+	margin: auto;
+}
+.header-ft-left {
+	display: flex;
+	gap: 15px;
+}

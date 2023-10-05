@@ -1,0 +1,28 @@
+
+.latest-video-container iframe {
+	width: 700px;
+	height: 393.75px;
+	border-radius: 20px;
+	border: none;
+	box-shadow: 2px 1px 5px 3px rgba(171, 171, 171, 0.054);
+}
+
+
+@media (max-width: 800px) {
+	.latest-video-container iframe {
+		width: 400px;
+		height: 225px;
+	}
+}
+@media (max-width: 600px) {
+	.latest-video-container iframe {
+		width: 400px;
+		height: 225px;
+	}
+}
+@media (max-width: 600px) {
+	.latest-video-container iframe {
+		width: 300px;
+		height: 168px;
+	}
+}

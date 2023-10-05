@@ -1,0 +1,18 @@
+#root {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: rgb(244, 244, 244);
+  min-height: 100vh;
+  width: 100vw;
+  color: black;
+}
+
+#App {
+  position: relative;
+  background-color: #f8f8f8;
+  max-width: 900px;
+  min-height: 100vh;
+  margin: auto;
+}
+
