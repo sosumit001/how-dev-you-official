@@ -42,13 +42,10 @@
 	/* width: 100%; */
 }
 #blogWrapper i {
-	background-color: rgb(223, 223, 223);
-	padding:3px 7px;
+	padding:3px 3px;
 	border-radius: 10px;
-	font-family: sans-serif;
 	font-style: normal;
-	font-size:clamp(10px, 1vw + 0.9rem, 23px);
-	font-weight: lighter;
+	font-weight: bold;
 }
 #blogWrapper pre {
 	min-width: 90%;
