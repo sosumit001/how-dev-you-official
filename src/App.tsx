@@ -15,9 +15,9 @@ function App() {
     <>
       <div id="App">
         <Routes>
-          <Route path='/' element = {<BlogLayout MDXComp={Blogs} />} />
-          <Route path='/blogs/2023/github-auth' element = {<BlogLayout MDXComp={GithubAuth} />}/>
-          <Route path='/blogs/2023/asynchronous-programming' element = {<BlogLayout MDXComp={Asynchronous} />}/>
+          <Route path='/' element = {<BlogLayout title='How Dev You . Official Blog Page' MDXComp={Blogs} />} />
+          <Route path='/blogs/2023/github-auth' element = {<BlogLayout title='Github auth 2.0' MDXComp={GithubAuth} />}/>
+          <Route path='/blogs/2023/asynchronous-programming' element = {<BlogLayout title="Asynchronous javascript programming || Callbacks, Promises & Async/Await" MDXComp={Asynchronous} />}/>
         </Routes>
       </div>
     </>

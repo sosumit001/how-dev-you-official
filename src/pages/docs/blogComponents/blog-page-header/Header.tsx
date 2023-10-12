@@ -5,7 +5,7 @@ import linkedin_logo from '../asset/linkedin-logo.svg'
 const Header = () => {
 
 	return (
-		<div style={{position:'sticky', backgroundColor:'white' , top:'0px' ,display:'flex', alignItems:'center',paddingLeft:'5%',paddingRight:'5%' ,width:'80%', margin:'20px 0px 30px'}}>
+		<div style={{position:'sticky', backgroundColor:'#ededed' , top:'0px' ,display:'flex', alignItems:'center',paddingLeft:'5%',paddingRight:'5%' ,width:'80%', margin:'20px 0px 30px'}}>
 			<h2 style={{fontSize:'clamp(18px ,2vw, 30px)'}}>How Dev You</h2>
 			<div style={{display:'flex', gap:'10px'}}>
 				<a style={{WebkitTapHighlightColor:'rgba(0,0,0,0)'}} href="https://youtube.com/@howdevyou" target="_blank">

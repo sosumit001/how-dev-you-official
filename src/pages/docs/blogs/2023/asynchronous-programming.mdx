@@ -1,6 +1,10 @@
 import Blogheader from '../../blogComponents/blog-header/Blogheader'
 import Image from '../../blogComponents/blog-image/Image'
 import Latestyt from '../../../components/Latestyt'
+import Highlighter from '../../blogComponents/blog-syntax-highlighter/Highlighter'
+
+{/* images */}
+import asyncJs_00 from './assets/asychronous-programming/asyncJs00.png'
 
 
 {/* blog - header */}
@@ -8,3 +12,41 @@ import Latestyt from '../../../components/Latestyt'
 heading = {"Javascript Asynchronous Programming"}  
 date = {"Oct 6, 2023"}
 />
+
+# Getting start with Async/Await
+
+## Async functions
+Normal functions use <i>return</i> to provide a result. By adding <i>async</i>, any function can become asynchronous, and async functions return <i>Promise</i> instead of direct results
+<Highlighter
+	codeString = {`//normal function
+const fn = () =>  {
+	return "Hello, World"
+}
+
+//asynchronous function
+const asyncFn = async () => {
+	return "Hello, World"
+}
+`}
+	language = "javascript"
+/>
+## How to use the Promise
+ In an async function, there's a result that it eventually provides. This result is stored in something called a Promise. You can think of a Promise like a special box that holds the result. To open this box and see what's inside, you use a function called 'then'. When you use 'then', it's like opening the box
+<Image
+	src = {asyncJs_00}
+	alt = "asyncJs 00"
+ />
+To get result from an <i>async function</i> use, <i>.then()</i> method, a callback function inside<i>.then()</i> method holds the result of asynchronous function i.e 
+
+<Highlighter
+	codeString = {`const asyncFn = async () => {
+ return "Hello, World"
+}
+asyncFn().then((res) => {
+ console.log(res)
+ // "Hello, World"
+})s
+asyncFn()
+`}
+	language = "javascript"
+ />

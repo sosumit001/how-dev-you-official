@@ -1,6 +1,6 @@
 interface TImage {
 	src:string,
-	alt:string
+	alt:string,
 }
 
 const Image = ({src,alt}:TImage) => {

@@ -40,7 +40,7 @@ const Bloglink = ({linktext, url, date, shortDes, tags} : BloglinkProps) => {
 				}
 			
 			</div>
-			<div style={{width:'90%'}}>{shortDes}</div>
+			<div style={{width:'90%',fontSize:'clamp(20px, 1vw + 0.9rem, 23px)'}}>{shortDes}</div>
 			<p   style={{margin:'0px',textDecoration:"underline", cursor:'pointer', WebkitTapHighlightColor:'rgba(0,0,0,0)'}}onClick={() => navigate(url)}>read more</p>
 		</header>
 	)

@@ -1,11 +1,10 @@
 .blog-header {
-	background-color: #fbfbfb;
+	background-color: #ededed;
 	display: flex;
 	flex-direction: column;
-	
+	width: 100%;
 	justify-content: center;
 	align-items: center;
-	padding: 4px;
 }
 .blog-heading{
 	color: #000;
@@ -13,7 +12,6 @@
 	font-size:clamp(30px, 2vw + 1rem, 100px);
 	text-align: left;
 	padding:10px 0px 20px ;
-	width:90%;
 	border-bottom: 1px solid;
 }
 .blog-header-ft{
@@ -26,5 +24,6 @@
 }
 .header-ft-left {
 	display: flex;
+	align-items: center;
 	gap: 15px;
 }
