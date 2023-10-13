@@ -5,7 +5,7 @@ interface TImage {
 
 const Image = ({src,alt}:TImage) => {
 	return (
-		<img width={'95%'}  src={ src } alt={alt} />
+		<img width={'98%'}  src={ src } alt={alt} />
 	)
 }
 export default Image
