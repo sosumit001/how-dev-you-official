@@ -14,12 +14,13 @@ const Highlighter = ({codeString, language}:THighlighter) => {
 			customStyle={{
 				fontSize:'clamp(15px ,1.9vw, 20px)',
 				borderRadius:'10px',
-				minWidth:'calc(90% - 25px)',
+				width:'calc(90% - 25px)',
 				paddingLeft:'25px',
 				paddingTop:'20px',
 				paddingBottom:'20px',
 				border:'1px solid grey',
-				background:'#ededed'
+				background:'#ededed',
+			
 			}}
 		>
 		{codeString}
