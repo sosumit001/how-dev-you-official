@@ -6,6 +6,8 @@ import Highlighter from '../../blogComponents/blog-syntax-highlighter/Highlighte
 {/* images */}
 import asyncJs_00 from './assets/asychronous-programming/asyncJs00.png'
 import asyncJs_01 from './assets/asychronous-programming/asyncJs01.png'
+import asyncJs_02 from './assets/asychronous-programming/asyncJs02.png'
+
 
 
 
@@ -59,4 +61,41 @@ asyncFn()
   <Image
 	src = {asyncJs_01}
 	alt = "asyncJs 01"
+ />
+
+  When you use <i>await</i> inside an <i>async function</i>, it pauses the function until a task is finished. Even though you don't see <i>.then()</i>, JavaScript is still using it behind the scenes. This makes your code look like it's running step by step
+
+  ## Async function example
+
+  Async functions are incredibly useful when dealing with tasks that take some time to finish, like <i>fetching data from a website</i>, <i>waiting for a response from a server</i>, or <i>performing any operation that involves waiting</i>. They allow us to write code in a way that looks synchronous, even though it's actually asynchronous under the hood. 
+  
+  Now, let's see how we can put this to work with an example using <i>Puppeteer</i>
+
+  <i>Puppeteer</i> is developed by the Google Chrome team, is a headless Chrome Node.js API can perform tasks like <i>web scraping</i>, <i>automated testing</i>, <i>and taking screenshots of web pages</i>, all programmatically
+
+Taking a screenshot of a webpage is only a few lines of code 
+
+<Highlighter
+	codeString={`import puppeteer from 'puppeteer'
+import fs from 'fs'
+
+const browser = await puppeteer.launch()
+const page = await browser.newPage()
+const res = await page.goto('https://blog.sumitso.in/')
+const img = await page.screenshot()
+await browser.close()
+
+fs.writeFileSync('sumitsowebblog.png', img)`}
+language="javascript"
+/>
+
+This code hides a lot of complexity. It starts a browser, then sends
+commands to it, all asynchronous since the browser is a separate process.
+But the end result is an image buffer containing the screenshot
+
+Now, Let's it break down
+
+  <Image
+	src = {asyncJs_02}
+	alt = "asyncJs 02"
  />
