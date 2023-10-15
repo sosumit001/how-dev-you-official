@@ -7,6 +7,7 @@ import Highlighter from '../../blogComponents/blog-syntax-highlighter/Highlighte
 import asyncJs_00 from './assets/asychronous-programming/asyncJs00.png'
 import asyncJs_01 from './assets/asychronous-programming/asyncJs01.png'
 import asyncJs_02 from './assets/asychronous-programming/asyncJs02.png'
+import asyncJs_03 from './assets/asychronous-programming/asyncJs03.png'
 
 
 
@@ -93,9 +94,67 @@ This code hides a lot of complexity. It starts a browser, then sends
 commands to it, all asynchronous since the browser is a separate process.
 But the end result is an image buffer containing the screenshot
 
-Now, Let's it break down
+Now, Let's break it down
 
   <Image
 	src = {asyncJs_02}
 	alt = "asyncJs 02"
+ />
+
+# Promises
+
+So far we've discussed how to write Promise-producing async functions and
+how to wait for a Promise to have a value. But how to create Promises in
+cases where there are no existing Promises to build on?
+
+To know this, we need to discuss how asynchronicity works in Javascript
+and how to construct Promises from callbacks
+
+But first let's discuss a little more about <i>callbacks</i>
+
+## Callbacks
+
+Callbacks are functions that are passed as arguments to other functions. They are executed after the function they are passed to completes its task.
+They are commonly used in asynchronous operations like <i>setTimeout</i>, <i>AJAX requests</i>, and <i>event handling</i>. 
+
+For example, when you use setTimeout, you pass a callback function that will be executed after a certain period of time.
+
+<Highlighter
+	codeString={`setTimeout(() => {
+  console.log('This will be executed after 2 seconds.')
+}, 2000)`}
+	language="javascript"
+/>
+
+The problem with callbacks is that we are back to square one as instead of
+having a flat structure we have nesting again
+
+Fortunately, there is a simple way to convert callbacks to Promises and then
+use them with await
+
+## The Promise constructor
+
+Async functions return Promises, allowing you to use <i>await</i> for waiting on results. To create a Promise, use its constructor along with a callback function that signals when the result is ready.
+
+For instance, to convert setTimeout into a Promise, wrap it in the constructor and use <i>res</i> as the callback:
+
+<Highlighter
+	codeString={`await new Promise((res) => {
+ setTimeout(res, 1000)
+})
+`}
+	language="javascript"
+/>
+
+With Promises instead of callbacks it's easy to use await and make a
+sequence of async operations
+## Promise states
+
+A Promise starts in a <i>Pending state</i>, waiting for completion.
+If successful, it's <i>Resolved</i>, allowing the program to continue. If there's an error, it's <i>Rejected</i>.
+<i>Both Resolved and Rejected states are considered Fulfilled</i>
+
+  <Image
+	src = {asyncJs_03}
+	alt = "asyncJs 03"
  />
