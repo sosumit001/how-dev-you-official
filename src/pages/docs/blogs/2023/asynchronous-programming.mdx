@@ -158,3 +158,38 @@ If successful, it's <i>Resolved</i>, allowing the program to continue. If there'
 	src = {asyncJs_03}
 	alt = "asyncJs 03"
  />
+
+# Error handling
+
+In real-world situations, errors can occur. With async functions, handling errors is crucial. If not handled properly, errors can halt the flow of code.
+
+Just like with synchronous functions, you can use try-catch to handle errors in async functions. Errors that occur during await are caught and can be handled using familiar syntax.
+
+<Highlighter
+	codeString={`const fn = () => {
+ throw new Error("Something bad happened")
+}
+try {
+ fn()
+}catch(e) {
+ // handle error
+}
+`}
+	language="javascript"
+/>
+
+Remember, errors in async functions are thrown during the await and not when the function is initially called
+
+<Highlighter 
+	codeString = {`const asyncFn = async () => {
+ throw new Error("Something bad happened")
+}
+const res = asyncFn() // no error here
+try {
+ await res // error
+}catch(e) {
+ // handle error
+}
+`} 
+	language = "javascript"
+/>
