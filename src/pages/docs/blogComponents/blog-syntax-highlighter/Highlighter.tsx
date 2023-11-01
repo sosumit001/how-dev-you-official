@@ -20,7 +20,6 @@ const Highlighter = ({codeString, language}:THighlighter) => {
 				paddingBottom:'20px',
 				border:'1px solid grey',
 				background:'#ededed',
-			
 			}}
 		>
 		{codeString}

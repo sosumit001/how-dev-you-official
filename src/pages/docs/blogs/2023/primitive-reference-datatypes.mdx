@@ -1,9 +1,12 @@
 import Blogheader from '../../blogComponents/blog-header/Blogheader'
 import Image from '../../blogComponents/blog-image/Image'
+import Highlighter from '../../blogComponents/blog-syntax-highlighter/Highlighter'
+
 
 {/* images */}
 import primitive_and_reference_01 from './assets/primitive-and-reference/primitive-and-reference-01.png'
 
+import primitive_and_reference_02 from './assets/primitive-and-reference/primitive-and-reference-02.png'
 
 {/* blog - header */}
 <Blogheader 
@@ -16,4 +19,77 @@ JavaScript uses two types: primitive (simple data) and reference (objects, which
 <Image 
 src = {primitive_and_reference_01}
 alt = "datatypes in javascript"
+/>
+
+# Primitive Types
+
+Primitive types in JavaScript are basic data like true, <i>12</i>, or <i>'cat'</i>. There are five: 
+
+<i>Boolean</i> (true or false),
+
+<i>Number</i> (any whole or decimal number), 
+
+<i>String</i> (text in quotes), 
+
+<i>Null</i> (represents nothing), 
+
+<i>Undefined</i> (represents no value, often given to a variable before it's used).
+
+The first three types (Boolean, Number, String) act similarly, while the last two (Null and Undefined) are a bit different. Each type can be written directly without using a variable, like writing down a name or price. Here are examples of each type in their simple form
+
+<Highlighter
+	codeString={`// strings
+let name = "Alex", selection = "a"
+// numbers
+let count = 25, cost = 1.51
+// boolean
+let found = true
+// null
+let object = null
+// undefined
+let flag, ref // Both flag and ref are automatically assigned undefined
+`}
+language="javascript"
+/>
+
+In JavaScript, when you store a primitive in a variable, it directly holds the value, not a reference to an object. So, if you assign a primitive to a variable, a copy of the value is made. This means if you have two variables, each has its own independent copy of the data
+<Image 
+src = {primitive_and_reference_02}
+alt = "primitive types memeory view"
+/>
+
+<Highlighter 
+	codeString = {`// Storing a primitive value
+let num1 = 10 // num1 contains the value 10
+let num2 = num1 // num2 now contains a copy of the value 10
+
+// Changing num2 does not affect num1
+num2 = 20
+
+console.log(num1) // Output: 10
+console.log(num2) // Output: 20
+`}
+	language = "javascript"
+/>
+
+## Identifying Primitive Types
+
+The easiest way to check a variable's type is to use <i>typeof</i>. It's a built-in operator that works with <i>strings, numbers, Booleans, and undefined</i>. Here's what you get when you use typeof with different primitive values
+
+<Highlighter 
+	codeString = {`console.log(typeof "Alex") // Outputs: "string"
+console.log(typeof 10) // Outputs: "number"
+console.log(typeof 5.1) // Outputs: "number"
+console.log(typeof true) // Outputs: "boolean"
+console.log(typeof undefined) // Outputs: "undefined"
+`}
+	language = "javascript"
+/>
+
+Many developers find the result of <i>console.log(typeof null)</i> puzzling. It returns "object" instead of "null". This is recognized as a mistake by the committee that designs JavaScript. While you might think of null as an empty object pointer, it's still a confusing result.
+
+A better way to check if a value is null is to directly compare it to null, like this
+
+<Highlighter
+	codeString  = {`console.log(value === null)   // true or false`}
 />
