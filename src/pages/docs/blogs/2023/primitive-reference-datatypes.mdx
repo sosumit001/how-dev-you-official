@@ -1,12 +1,15 @@
 import Blogheader from '../../blogComponents/blog-header/Blogheader'
 import Image from '../../blogComponents/blog-image/Image'
 import Highlighter from '../../blogComponents/blog-syntax-highlighter/Highlighter'
+import Blognote from '../../blogComponents/blog-imp-note/Blognote'
 
 
 {/* images */}
 import primitive_and_reference_01 from './assets/primitive-and-reference/primitive-and-reference-01.png'
 
 import primitive_and_reference_02 from './assets/primitive-and-reference/primitive-and-reference-02.png'
+
+import primitive_and_reference_03 from './assets/primitive-and-reference/primitive-and-reference-03.png'
 
 {/* blog - header */}
 <Blogheader 
@@ -92,4 +95,93 @@ A better way to check if a value is null is to directly compare it to null, like
 
 <Highlighter
 	codeString  = {`console.log(value === null)   // true or false`}
+	language = "javascript"
 />
+
+<Blognote
+	heading = "Strict Type Comparison"
+	text = {`Here, the code employs the triple equals operator (===) rather than 
+	the double equals operator. The key distinction is that the triple equals operator performs the comparison without attempting to convert the variable into another type`}
+/>
+
+## Primitive methods
+
+In spite of being considered primitive types, strings, numbers, and Booleans possess methods. However, it's worth noting that the null and undefined types lack methods. Strings, in particular, offer a wide array of methods to assist you in manipulating them. For instance
+
+<Highlighter 
+	codeString = {`let name = "Alex"
+let lowercaseName = name.toLowerCase() // converts to lowercase
+let firstLetter = name.charAt(0) // retrieves the first character
+let middleOfName = name.substring(2, 5) // retrieves characters 2-4
+let count = 10
+let fixedCount = count.toFixed(2) // converts to "10.00"
+let hexCount = count.toString(16) // converts to "a"
+let flag = true
+let stringFlag = flag.toString()"
+`}
+	language = "javascript"
+/>
+
+# Reference Types
+
+Reference types in JavaScript are like classes, representing objects. Reference values, synonymous with objects, are instances of these types. An object is an unordered list of properties with names (strings) and corresponding values. When a property holds a function, it's called a method. Functions themselves are reference values, so there's little difference between properties holding arrays or functions, except functions can be executed
+
+## Building Objects
+
+Think of JavaScript objects like labeled storage boxes, where you can put whatever you want with some label for that thing, cool isn't it.
+
+ To create an object, you can use a special function called a constructor, which is just a way to make objects. Constructors usually start with a capital letter. For example, if you use a constructor called 'Object', you can create a new object and save it as 'object'.
+
+for example 
+<Highlighter
+	codeString = {`var object1 = new Object()
+var object2 = object1`}
+	language = "javascript"
+/>
+
+This code makes a new object and calls it 'object1'. Then, 'object2' is set to be the same as 'object1'. There's only one object made in the beginning, but now both 'object1' and 'object2' refer to that same object
+
+Let me tell you what I'm talking about with following diagram : 
+
+<Image 
+src = {primitive_and_reference_03}
+alt = "memory in reference types"
+/>
+
+Now with following <i>array</i> example everything would be clear to you that how manipulating array data structure with one instance is reflected in another 
+
+<Highlighter 
+	codeString = {`// Create an array and assign it to 'array1'
+var array1 = [1, 2, 3]
+
+// Assign the value of 'array1' to 'array2'
+var array2 = array1
+
+// Modify 'array1'
+array1.push(4)
+
+// it will reflect the modification
+console.log(array2) // [1, 2, 3, 4]
+`}
+	language = "javascript"
+/>
+
+## Built-in Types
+
+You've learned how to create and work with basic objects using new Object(). The Object type is just one of several built-in reference types available in JavaScript. The other built-in types serve specific purposes and can be created when needed. These types include:
+
+Array: A list of values with numerical indices
+
+<i>Date</i>  ( Represents a date and time )
+
+<i>Error</i>  ( Represents a runtime error )
+
+<i>Function</i> ( Defines a function ) 
+
+<i>Object</i>  ( Represents a general-purpose object )
+
+<i>RegExp</i> ( Represents a regular expression )
+
+## Literal Forms in JavaScript
+
+

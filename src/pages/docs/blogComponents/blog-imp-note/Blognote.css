@@ -1,0 +1,7 @@
+.blognote-text {
+	font-size: clamp(10px, 1vw + 0.9rem, 23px)
+}
+.blognote-container {
+	background-color: rgb(215, 218, 219);
+	border: 1px solid grey;
+}
