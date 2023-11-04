@@ -182,6 +182,83 @@ Array: A list of values with numerical indices
 
 <i>RegExp</i> ( Represents a regular expression )
 
-## Literal Forms in JavaScript
+## Literal froms
+Literal Forms simplify creating reference values. They let you define values directly without the need for object creation using 'new' and a constructor.
+### Object and Function Literals
+To create an object with object literal syntax, you can define the properties 
+of a new object inside braces
+<Highlighter
+	codeString = {`var book = {
+ name: "The Principles of Object-Oriented JavaScript",
+ year: 2014
+}`}
+/>
+
+You almost always define functions using their literal form. In fact, using the Function constructor is typically discouraged given the challenges of maintaining, reading, and debugging a string of code rather than actual code, so you’ll rarely see it in code.
+
+<Highlighter 
+	codeString = {`// Function literal
+let addLiteral = function(a, b) {
+    return a + b
+}
+// Function constructor form (less common and not recommended)
+let addConstructor = new Function('a', 'b', 'return a + b')
+	`}
+/>
+
+## Identifying Reference Types
+
+Identifying functions is straightforward: using the typeof operator on a function should return "function"
+
+<Highlighter 
+	codeString = {`function reflect(value) {
+  return value
+}
+console.log(typeof reflect) // "function"`}
+/>
+However, for other reference types, typeof returns "object", which isn't very helpful when dealing with various types. To identify reference types more accurately, you can use JavaScript’s instanceof operator.
+
+The instanceof operator takes an object and a constructor as parameters. It returns true if the object is an instance of the specified type otherwise, it returns false
+
+<Highlighter 
+	codeString = {`var items = []
+var object = {}
+
+console.log(items instanceof Array) // true
+console.log(object instanceof Object) // true
+console.log(reflect instanceof Function) // true
+`}
+/>
+
+## Identifying Arrays
+Sometimes, web developers face a tricky situation when dealing with arrays. JavaScript values can move between frames in a web page. But, each frame has its own 'version' of basic types like Object or Array.
+
+This causes a small hiccup. The usual way to check types, 'instanceof', doesn't work when passing arrays between frames. It thinks it's a different type.
+
+To solve this, ECMAScript 5 introduced a helpful tool called 'Array.isArray()'. It's like a magic wand that says 'yes, this is definitely an array', no matter where it came from
+
+<Highlighter 
+codeString = {`var items = [];
+console.log(Array.isArray(items)) // true
+`}
+/>
+
+# Key Takeaways
+
+JavaScript doesn't use classes like some other languages, but it does have different types for data. There are primitive types (simple values like strings, numbers, Booleans, null, and undefined) that are stored directly in the variable.
+
+For more complex data, there are reference types. Objects are examples of reference types. You can create new objects with new or a reference literal. You access properties and methods using dot or bracket notation.
+
+Functions are special objects in JavaScript. You can identify them using typeof.
+
+To identify objects of other reference types, use instanceof with a constructor.
+
+JavaScript makes primitives act more like references with String, Number, and Boolean wrapper types. They let you treat primitives like objects temporarily.
+
+Creating your own instances of these wrapper types can be confusing, so it's usually best to avoid it
+
+
+
+
 
 
