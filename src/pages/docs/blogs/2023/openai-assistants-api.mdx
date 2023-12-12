@@ -1,0 +1,56 @@
+import Blogheader from '../../blogComponents/blog-header/Blogheader'
+import Image from '../../blogComponents/blog-image/Image'
+import Latestyt from '../../../components/Latestyt'
+
+import Highlighter from '../../blogComponents/blog-syntax-highlighter/Highlighter'
+
+<Blogheader 
+heading = {"OpenAI Assistants API Integration"}  
+date = {"Dec 12, 2023"}
+/>
+
+## Overview
+
+This project demonstrates the integration of the OpenAI Assistant API to create a Python Tutor assistant. The assistant supports Python-related queries, utilizing the Code Interpreter tool.
+
+<Latestyt 
+src = "https://www.youtube.com/embed/pPXRmQ37M6k?si=p8rttIp2ujzFX3ui"
+marginTop = "50px"
+/>
+
+
+## Usage
+
+To run the integration, follow these steps:
+
+1. Create an assistant using `createAssistant()`.
+2. Initiate a thread with `createThread()`.
+3. Add a user message using `addMessage()` with the desired Python-related query.
+4. Run the assistant on the thread using `runAssistant()`.
+5. Wait for the run to complete with `waitForRunCompletion()`.
+6. Display the assistant's response using `displayAssistantResponse()`.
+
+Make sure to replace `{threadId}` and `{runId}` with the actual IDs obtained during the process.
+
+## Setup
+
+1. Install the required packages: `npm install`.
+2. Set your OpenAI API key in the `apiKey` variable within the script.
+
+## Example
+
+
+<Highlighter 
+codeString = {`const main = async () => {
+  await createAssistant()
+  await createThread()
+  await addMessage()
+  await runAssistant()
+  await waitForRunCompletion()
+  await displayAssistantResponse()
+};
+
+main()`}
+language = "javascript"
+/>
+
