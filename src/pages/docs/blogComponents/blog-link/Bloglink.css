@@ -1,0 +1,23 @@
+.inner_blog_link div {
+	width: calc(90% - 200px);
+}
+.inner_blog_link img {
+	width: 200px;
+}
+
+@media only screen and (max-width: 875px) {
+	.inner_blog_link {
+		flex-wrap: wrap-reverse;
+	}
+	.inner_blog_link img {
+		width: 75%;
+	}
+	.inner_blog_link div {
+		width: 90%;
+	}
+}
+@media only screen and (max-width: 511px){
+	.inner_blog_link img {
+		width: 85%;
+	}
+}

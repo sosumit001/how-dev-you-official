@@ -1,16 +1,18 @@
 
 import {useNavigate} from 'react-router-dom'
+import './Bloglink.css'
 
 interface BloglinkProps {
 	linktext:string,
 	url:string,
 	date:string,
 	shortDes?:string,
-	tags?:string[]
+	tags?:string[],
+	YT_THUMB?:string
 }
 
 
-const Bloglink = ({linktext, url, date, shortDes, tags} : BloglinkProps) => {
+const Bloglink = ({linktext, url, date, shortDes, tags, YT_THUMB} : BloglinkProps) => {
 
 	const navigate = useNavigate()
 	const BloglinkStyle : React.CSSProperties = {
@@ -27,7 +29,7 @@ const Bloglink = ({linktext, url, date, shortDes, tags} : BloglinkProps) => {
 		border:"2px solid",
 		// borderRadius:"20px"
 	}
-
+	
 
 	return (
 		<header style={BloglinkStyle}>
@@ -43,7 +45,10 @@ const Bloglink = ({linktext, url, date, shortDes, tags} : BloglinkProps) => {
 				}
 			
 			</div>
-			<div style={{width:'90%',fontSize:'clamp(20px, 1vw + 0.9rem, 23px)'}}>{shortDes}</div>
+			<div className='inner_blog_link' style={{justifyContent:'space-around', paddingBottom:'30px',margin:'20px 0px 20px', background:'black', color:'white', display:'flex',gap:'10px', backgroundColor:'black', width:'90%', padding:'2.5%'}}>
+				<div style={{  fontSize:'clamp(20px, 1vw + 0.9rem, 23px)'}}>{shortDes}</div>
+				<img src={YT_THUMB} alt="blah" />
+			</div>
 			<p   style={{margin:'0px',textDecoration:"underline", cursor:'pointer', WebkitTapHighlightColor:'rgba(0,0,0,0)'}}onClick={() => navigate(url)}>read more</p>
 		</header>
 	)
