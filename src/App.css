@@ -2,15 +2,16 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  background-color: rgb(244, 244, 244);
+  /* background-image: linear-gradient(to top, #070402, #F86F4B); */
   min-height: 100vh;
   width: 100vw;
   color: black;
+  background-color: rgb(255, 255, 255);
 }
 
 #App {
   position: relative;
-  background-color: #f8f8f8;
+  background-color: white;
   max-width: 900px;
   min-height: 100vh;
   margin: auto;

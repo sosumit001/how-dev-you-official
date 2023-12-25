@@ -5,7 +5,8 @@
 	min-height: 100vh;
 	align-items: center;
 	text-align: left;
-	background-color: #ededed;
+	/* background-image: linear-gradient(to top, #E46D17, #F86F4B); */
+	/* background-color: #F86F4B; */
 }
 
 #blogWrapper p{
@@ -49,5 +50,9 @@
 }
 #blogWrapper pre {
 	min-width: 90%;
+	background-color: yellow;
+}
+
+.blog_link {
 	background-color: yellow;
 }

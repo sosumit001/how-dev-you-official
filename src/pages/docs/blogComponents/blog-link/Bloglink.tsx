@@ -15,14 +15,17 @@ const Bloglink = ({linktext, url, date, shortDes, tags} : BloglinkProps) => {
 	const navigate = useNavigate()
 	const BloglinkStyle : React.CSSProperties = {
 		display:'flex',
-		gap:'2px',
 		flexDirection:'column',
 		alignItems:'center',
 		width:'90%',
 		textAlign:'left',
 		WebkitTapHighlightColor:'rgba(0,0,0,0)',
 		justifyContent:'left',
-		marginBottom:'25px'
+		backgroundColor:"white",
+		padding:'30px 0px',
+		marginBottom:'30px',
+		border:"2px solid",
+		// borderRadius:"20px"
 	}
 
 
@@ -34,7 +37,7 @@ const Bloglink = ({linktext, url, date, shortDes, tags} : BloglinkProps) => {
 				{
 					tags?.map((ele, key) => {
 						return (
-							<span key={key} style={{cursor:'default' ,border:'1px solid black',fontSize:'0.8rem', padding:'5px 10px 5px', borderRadius:'5px'}}>{ele}</span>
+							<span key={key} style={{cursor:'default' ,border:'1px solid black',fontSize:'0.8rem',background:'black',color:'white', padding:'5px 10px 5px', borderRadius:'5px'}}>{ele}</span>
 						)
 					})
 				}
