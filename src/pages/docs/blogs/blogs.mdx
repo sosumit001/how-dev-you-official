@@ -1,7 +1,19 @@
 import Bloglink from '../blogComponents/blog-link/Bloglink'
-import Header from '../blogComponents/blog-page-header/Header'
+import {Header} from 'howdevyou'
+import site_logo from '../../../assets/sumo.svg'
 
-<Header />
+<Header
+	margin_top = "20px"
+	site_logo_width = {"100%"}
+	header_width = {"90%"}
+	logo_src={site_logo}
+	site_description="A repository of Sumit So’s thoughts"
+	site_nav_links={[
+		{ name: "home", loc: "/", link_color:"black", link_bg: "rgba(0,0,0,0)" },
+		{ name: "blogs", loc: "/blogs", link_color:"black", link_bg: "whitesmoke" }
+	]}
+/>
+
 <Bloglink
 	linktext ={'GitHub OAuth 2.0 Authorization with React'}
 	shortDes={'GitHub supports OAuth 2.0, which is an industry-standard protocol for authorization. It allows users to grant third-party applications limited access to their GitHub accounts without sharing their passwords...'}

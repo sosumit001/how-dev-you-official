@@ -4,6 +4,21 @@ import Latestyt from '../../../components/Latestyt'
 
 import Highlighter from '../../blogComponents/blog-syntax-highlighter/Highlighter'
 
+import {Header} from 'howdevyou'
+import site_logo from './assets/sumo.svg'
+
+<Header
+	margin_top = "20px"
+	site_logo_width = {"100%"}
+	header_width = {"90%"}
+	logo_src={site_logo}
+	site_description="A repository of Sumit So’s thoughts"
+	site_nav_links={[
+		{ name: "home", loc: "/" },
+		{ name: "blogs", loc: "/blogs" },
+		{ name: "current", loc: "/blogs/2023/openai-assistants-api", link_color: "black", link_bg: "pink" }
+	]}
+/>
 <Blogheader 
 heading = {"OpenAI Assistants API Integration"}  
 date = {"Dec 12, 2023"}

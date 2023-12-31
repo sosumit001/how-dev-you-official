@@ -23,10 +23,11 @@ const Bloglink = ({linktext, url, date, shortDes, tags, YT_THUMB} : BloglinkProp
 		textAlign:'left',
 		WebkitTapHighlightColor:'rgba(0,0,0,0)',
 		justifyContent:'left',
-		backgroundColor:"white",
+		backgroundColor:"whitesmoke",
 		padding:'30px 0px',
 		marginBottom:'30px',
-		border:"2px solid",
+		// border:"2px solid",
+		marginTop:"50px"
 		// borderRadius:"20px"
 	}
 	

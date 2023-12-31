@@ -6,6 +6,21 @@ import Latestyt from '../../../components/Latestyt'
 import authorization_flow from './assets/github-auth/authorization-flow.png'
 import exchange_authcode from './assets/github-auth/exchange-auth-code-for-access-token.png'
 import make_postreq from './assets/github-auth/make-postreq-using-access-token.png'
+import {Header} from 'howdevyou'
+import site_logo from './assets/sumo.svg'
+
+<Header
+	margin_top = "20px"
+	site_logo_width = {"100%"}
+	header_width = {"90%"}
+	logo_src={site_logo}
+	site_description="A repository of Sumit So’s thoughts"
+	site_nav_links={[
+		{ name: "home", loc: "/" },
+		{ name: "blogs", loc: "/blogs" },
+		{ name: "current", loc: "/blogs/2023/github-auth", link_color: "black", link_bg: "pink" }
+	]}
+/>
 
 {/* blog - header */}
 <Blogheader 

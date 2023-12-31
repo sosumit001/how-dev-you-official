@@ -12,7 +12,21 @@ import primitive_and_reference_01 from './assets/primitive-and-reference/primiti
 import primitive_and_reference_02 from './assets/primitive-and-reference/primitive-and-reference-02.png'
 
 import primitive_and_reference_03 from './assets/primitive-and-reference/primitive-and-reference-03.png'
+import {Header} from 'howdevyou'
+import site_logo from './assets/sumo.svg'
 
+<Header
+	margin_top = "20px"
+	site_logo_width = {"100%"}
+	header_width = {"90%"}
+	logo_src={site_logo}
+	site_description="A repository of Sumit So’s thoughts"
+	site_nav_links={[
+		{ name: "home", loc: "/" },
+		{ name: "blogs", loc: "/blogs" },
+		{ name: "current", loc: "/blogs/2023/primitive-and-reference-types", link_color: "black", link_bg: "pink" }
+	]}
+/>
 {/* blog - header */}
 <Blogheader 
 heading = {"Primitive and Reference types"}  
