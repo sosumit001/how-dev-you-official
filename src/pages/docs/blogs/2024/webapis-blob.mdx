@@ -1,0 +1,208 @@
+import Blogheader from '../../blogComponents/blog-header/Blogheader'
+import Highlighter from '../../blogComponents/blog-syntax-highlighter/Highlighter'
+
+import site_logo from './assets/sumo.svg'
+import webapis_blob from './assets/webapis-blob/blob-instance.png'
+import webapis_blob00 from './assets/webapis-blob/blob-00.png'
+import webapis_blob01 from './assets/webapis-blob/blob-01.png'
+import webapis_blob02 from './assets/webapis-blob/blob-02.png'
+import webapis_blob03 from './assets/webapis-blob/blob-03.png'
+
+import Image from '../../blogComponents/blog-image/Image'
+import {Header} from 'howdevyou'
+
+<Header
+	margin_top = "20px"
+	site_logo_width = {"100%"}
+	header_width = {"90%"}
+	logo_src={site_logo}
+	site_description="A repository of Sumit So’s thoughts"
+	site_nav_links={[
+		{ name: "home", loc: "/" },
+		{ name: "blogs", loc: "/blogs" },
+		{ name: "current", loc: "/blogs/2024/blob-webapis", link_color: "black", link_bg: "pink" }
+	]}
+/>
+
+<Blogheader 
+heading = {"Blob Web API"}  
+date = {"Jan 5, 2023"}
+/>
+
+
+A Blob (Binary Large Object) in the context of the Web API is an immutable object that represents raw data. Blobs are used to handle large chunks of data, especially binary data, in web applications
+
+<Image
+	src = {webapis_blob00}
+	alt = "converting traditional data types into blob"
+ />
+
+ <b>Blob objects are serializable</b> ( serialization is a process of converting an object or data structure into a format that can be easily stored, transmitted, or reconstructed ) object
+
+## Example 
+In this example, we convert the string 'Ratt Madison' into a Blob object using a Blob constructor. Each character is stored as an 8-bit (1 byte) ASCII value. 
+
+In a Blob, represented as an ArrayBuffer of UInt8, each character takes one slot, efficiently encoding the string into binary for web application
+
+ <Image
+	src = {webapis_blob01}
+	alt = "momery structure looks like for blob"
+ />
+
+ Blobs optimize data transfer in web applications by efficiently handling raw binary data, from large text to multimedia. This makes client-server interactions faster and more resource-effective, particularly for uploading and downloading content
+
+ ## The Blob Interface
+
+ ## <code> 1. Blob constructor </code>
+ The Blob constructor is used to create a new Blob object, which is a file-like object of immutable, raw data. 
+ 
+ In the example, we create a Blob from a string, user, which contains "Ratt Madison". This Blob is of type 'application/text', indicating its conten
+
+ <Highlighter 
+	codeString = {`const user = "Ratt Madison"
+
+let blob = new Blob([ JSON.stringify(user) ], {
+	type:'application/text'
+})`}
+	language='javascript'
+ />
+
+ ## <code>2. Blob instance properties : (size, type)</code>
+
+  Two readOnlyProperties that are directly accessible and highly informative are size and type
+
+  <code>size</code> : size in bytes, <code>type</code> : the MIME type, eg. 'application/text'
+
+ <Highlighter 
+	codeString={`
+console.log('Blob Size:', blob.size) 
+console.log('Blob Type:', blob.type) 
+// Blob Size: 14
+// Blob Type: application/text
+`}
+	language='javascript'
+ />
+
+ ## <code>3. Blob instance method : ( slice, stream, text, arrayBuffer )</code>
+ <Image
+	src = {webapis_blob02}
+	alt = "slicing of blob"
+ />
+
+##  SLICE (start, end, blob) 
+The slice() method in Blob web API is used to create a new Blob object containing a portion of the data from an existing Blob. This method is particularly useful for extracting a subset of data from a large Blob.
+
+When you use slice(), you can specify the start and end parameters to define the portion of the Blob you want to extract. These parameters are byte positions within the Blob. The method also allows you to set a contentType for the new Blob, specifying the MIME type of the extracted 
+
+### <code>example : getting "Ratt" from "Ratt Madison"</code>
+
+<Image
+	src= {webapis_blob03}
+	alt='slicing of blob object'
+/>
+
+<Highlighter 
+codeString={`const user = "Ratt Madison"
+let blob = new Blob([JSON.stringify(user)], {
+    type: 'application/text'
+})
+
+const blobReadRawData = (file) => {
+    const reader = new FileReader()
+    reader.onload = (evt) => {
+        console.log(evt.target.result)
+    }
+    reader.readAsBinaryString(file)
+}
+
+const sliceFromStartToEnd = (start, end, blob) => {
+    const subBlobForFirstName = blob.slice(start, end)
+    blobReadRawData(subBlobForFirstName)
+}
+
+// Example usage
+sliceFromStartToEnd(0, 4, blob) // Slices the first 4 characters from 'blob'
+`}
+/>
+
+
+## STREAM () | Returns readableStream
+
+The stream() method in the Blob API is essential for handling Blob data in a streaming manner. It allows you to create a ReadableStream from a Blob, enabling the processing of its data in chunks as it's being read. This is especially useful for large Blobs where you want to start processing the data without waiting for the entire Blob to load.
+
+### <code> Key Functionality of stream() </code>
+
+Creates a ReadableStream from a Blob, 
+Enables chunk-by-chunk processing of Blob data, 
+Useful for handling large files efficiently, 
+
+Relevant Code Example
+From your provided code, let's focus on how the stream() method is utilized:
+
+<Highlighter 
+	codeString={`const blobStream = async (file) => {
+    const readableStream = file.stream()
+    const stream = readableStream.getReader()
+    const { done, value } = await stream.read()
+    
+    if (done) {
+        console.log('All data has been processed')
+    } else {
+        console.log('Data is equal to:', value)
+    }
+}
+
+// Example usage with a Blob object
+blobStream(blob)`}
+/>
+In this example:
+
+The blobStream function takes a Blob (file) as its argument.
+It uses the stream() method on the Blob to create a ReadableStream.
+The read() method of the stream's reader is then used to read the Blob's data chunk by chunk.
+The function logs each chunk of data as it's read and indicates when all the data has been processed.
+
+## TEXT & ARRAYBUFFER 
+
+Unlike the stream() method, the Blob API provides other methods like text() and arrayBuffer() for different ways of reading and processing the data contained in a Blob. These methods are useful for converting Blob data into more accessible formats.
+
+### <code>The text() Method</code>
+Converts the Blob data to a text string.
+
+<Highlighter 
+	codeString = {`const blobText = async (file) => {
+    const text = await file.text()
+    console.log('Blob as text:', text)
+}`}
+	language = "javascript"
+/>
+
+// Example usage with a Blob object
+blobText(blob)
+In this snippet, blobText takes a Blob and uses text() to convert it to a string, which is then logged to the console. This method is particularly useful when the Blob contains data like JSON or plain text.
+
+### <code>The arrayBuffer() Method</code>
+Converts the Blob into an ArrayBuffer, which represents the raw binary data.
+Use Case: Useful for binary processing or when you need to manipulate the Blob's 
+
+<highlighter 
+	codeString = {`const blobArrayBuffer = async (file) => {
+    const buffer = await file.arrayBuffer()
+    console.log('Blob as ArrayBuffer:', buffer)
+}`}
+	language = "javascript"
+/>
+
+// Example usage with a Blob object
+blobArrayBuffer(blob)
+In this example, blobArrayBuffer converts the Blob into an ArrayBuffer. This method is essential when dealing with binary data, such as images or audio files, where you might need to process or analyze the data byte by byte.
+
+# Summary
+
+<Image
+	src = {webapis_blob}
+	alt = "summary blob Web apis"
+ />
+
+The Blob API in JavaScript is designed for handling large binary data efficiently. It includes a constructor for creating Blobs, methods like stream(), text(), and arrayBuffer() for reading Blob data in various formats, and properties size and type that provide information about the Blob's data size and MIME type. This API is crucial for efficiently managing data transfer and processing in web applications, especially for large files and multimedia content
+
